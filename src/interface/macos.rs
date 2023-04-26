@@ -1,5 +1,6 @@
 use crate::interface::InterfaceType;
 use std::collections::HashMap;
+use log::info;
 use system_configuration::network_configuration;
 
 fn get_if_type_from_id(type_id: String) -> InterfaceType {
@@ -13,6 +14,7 @@ fn get_if_type_from_id(type_id: String) -> InterfaceType {
 
 pub fn get_if_type_map() -> HashMap<String, InterfaceType> {
     let mut map: HashMap<String, InterfaceType> = HashMap::new();
+    info!("Quenitn second test");
     let interfaces = network_configuration::get_interfaces();
     for interface in &interfaces {
         let if_name: String = if let Some(bsd_name) = interface.bsd_name() {
