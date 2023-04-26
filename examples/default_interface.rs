@@ -1,6 +1,8 @@
 use default_net;
+use log::info;
 
 fn main() {
+    info!("This is a warning log message in my_function.");
     match default_net::get_default_interface() {
         Ok(default_interface) => {
             println!("Default Interface");
