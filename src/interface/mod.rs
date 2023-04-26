@@ -4,6 +4,8 @@ pub use self::shared::*;
 mod types;
 pub use self::types::*;
 
+use log::{info, warn, error};
+
 #[cfg(any(
     target_os = "linux",
     target_os = "macos",
@@ -151,6 +153,7 @@ pub fn get_default_interface() -> Result<Interface, String> {
 
 /// Get default Network Interface index
 pub fn get_default_interface_index() -> Option<u32> {
+    warn!("This is a warning log message in my_function.");
     let local_ip: IpAddr = match get_local_ipaddr() {
         Some(local_ip) => local_ip,
         None => return None,

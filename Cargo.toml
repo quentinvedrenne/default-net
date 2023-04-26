@@ -12,6 +12,7 @@ license = "MIT"
 
 [dependencies]
 libc = "0.2"
+log = "0.4"
 
 [target.'cfg(target_os = "android")'.dependencies]
 # DL Open
@@ -32,3 +33,5 @@ features = ["Win32_Foundation","Win32_NetworkManagement_IpHelper", "Win32_Networ
 [target.'cfg(any(target_os = "macos", target_os = "ios"))'.dependencies]
 system-configuration = { git = "https://github.com/quentinvedrenne/system-configuration-rs.git", branch = "main" }
 
+[workspace]
+members = []
