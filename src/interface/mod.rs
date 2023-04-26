@@ -129,25 +129,26 @@ pub struct Interface {
 
 /// Get default Network Interface
 pub fn get_default_interface() -> Result<Interface, String> {
-    let local_ip: IpAddr = match get_local_ipaddr() {
-        Some(local_ip) => local_ip,
-        None => return Err(String::from("Local IP address not found")),
-    };
-    let interfaces: Vec<Interface> = interfaces();
-    for iface in interfaces {
-        match local_ip {
-            IpAddr::V4(local_ipv4) => {
-                if iface.ipv4.iter().any(|x| x.addr == local_ipv4) {
-                    return Ok(iface);
-                }
-            }
-            IpAddr::V6(local_ipv6) => {
-                if iface.ipv6.iter().any(|x| x.addr == local_ipv6) {
-                    return Ok(iface);
-                }
-            }
-        }
-    }
+    info!("QueNTIN get_default_interface ");
+    // let local_ip: IpAddr = match get_local_ipaddr() {
+    //     Some(local_ip) => local_ip,
+    //     None => return Err(String::from("Local IP address not found")),
+    // };
+    // let interfaces: Vec<Interface> = interfaces();
+    // for iface in interfaces {
+    //     match local_ip {
+    //         IpAddr::V4(local_ipv4) => {
+    //             if iface.ipv4.iter().any(|x| x.addr == local_ipv4) {
+    //                 return Ok(iface);
+    //             }
+    //         }
+    //         IpAddr::V6(local_ipv6) => {
+    //             if iface.ipv6.iter().any(|x| x.addr == local_ipv6) {
+    //                 return Ok(iface);
+    //             }
+    //         }
+    //     }
+    // }
     Err(String::from("Default Interface not found"))
 }
 
