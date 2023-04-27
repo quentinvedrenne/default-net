@@ -129,7 +129,6 @@ pub struct Interface {
 
 /// Get default Network Interface
 pub fn get_default_interface() -> Result<Interface, String> {
-    info!("QueNTIN get_default_interface ");
     let local_ip: IpAddr = match get_local_ipaddr() {
         Some(local_ip) => local_ip,
         None => return Err(String::from("Local IP address not found")),

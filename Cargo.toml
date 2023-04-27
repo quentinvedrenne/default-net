@@ -31,7 +31,7 @@ version = "0.32.0"
 features = ["Win32_Foundation","Win32_NetworkManagement_IpHelper", "Win32_Networking_WinSock"]
 
 [target.'cfg(any(target_os = "macos", target_os = "ios"))'.dependencies]
-system-configuration = { git = "https://github.com/quentinvedrenne/system-configuration-rs.git", branch = "main" }
+system-configuration = { git = "https://github.com/edamametechnologies/system-configuration-rs.git", branch = "main" }
 
 [workspace]
 members = []
